@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+script:
+  - docker build --tag imagebytravis .
+  - docker run imagebytravis
+
+after_script:
+  - docker images
