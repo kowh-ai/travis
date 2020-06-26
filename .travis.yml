@@ -18,6 +18,6 @@ before_deploy:
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
-  script: docker push kowhai/travis
+  script: docker push kowhaitree/travis
   on:
     branch: master
