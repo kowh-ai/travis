@@ -5,7 +5,7 @@ env:
   global:
     - REGISTRY_USER=brettlink
     - REGISTRY_PASS=ManHat212
-    - secret: "<something long>"
+    #- secret: "<something long>"
 
 script:
   - docker build --tag kowhaitree/travis .
