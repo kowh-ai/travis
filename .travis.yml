@@ -1,10 +1,23 @@
 sudo: required
 services:
   - docker
+env:
+  global:
+    - REGISTRY_USER=brettlink
+    - REGISTRY_PASS=ManHat212
+    - secret: "<something long>"
 
 script:
-  - docker build --tag imagebytravis .
-  - docker run imagebytravis
+  - docker build --tag kowhaitree/travis .
+  - docker run kowhaitree/travis
 
 after_script:
   - docker images
+
+before_deploy:
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+deploy:
+  provider: script
+  script: docker push kowhai/travis
+  on:
+    branch: master
