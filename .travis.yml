@@ -7,8 +7,11 @@ env:
     - REGISTRY_PASS=ManHat212
     #- secret: "<something long>"
 
+before_script:
+    - docker pull kowhai/travis || true
+
 script:
-  - docker build --tag kowhai/travis .
+  - docker build --pull --cache-from kowhai/travis --tag kowhai/travis .
   - docker run kowhai/travis
 
 after_script:
