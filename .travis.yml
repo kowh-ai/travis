@@ -9,7 +9,7 @@ env:
 
 script:
   - docker build --tag kowhai/travis:1.0 .
-  - docker run kowhai/travis:1.0
+  - docker run
 
 after_script:
   - docker images
